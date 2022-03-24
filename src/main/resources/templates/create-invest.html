@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html  xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+       xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <link rel="stylesheet" href="/web/css/accounts.css">
+    <title th:text="#{create.invest.title}"></title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="/web/img/Eye.png" alt="icono" width="60" height="45">
+        </a>
+        <a class="navbar-brand" href="#" th:text="#{create.invest.title2}"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/index.html" th:text="#{create.invest.logout}"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/create-invest.html(lang=es)}" th:text="#{create.invest.spanish}"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"><img src="/web/img/españa.png" alt="" width="40px"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/create-invest.html(lang=en)}" th:text="#{create.invest.english}"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"><img src="/web/img/UK.png" alt="" width="30px"></a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 barralat">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white"style="height: 435px;">
+                <a href="/"
+                   class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline" th:text="#{create.invest.bank}"></span>
+                </a>
+
+
+
+
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="/accounts.html" class="nav-link link-dark">
+                            <i class="bi bi-inboxes" th:text="#{create.invest.accounts}"></i>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cards.html" class="nav-link link-dark">
+                            <i class="bi bi-credit-card" th:text="#{create.invest.cards}"></i>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/transfers.html" class="nav-link link-dark">
+                            <i class="bi bi-box-arrow-right" th:text="#{create.invest.transfers}"></i>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/loan.html" class="nav-link link-dark">
+                            <i class="bi bi-cash" th:text="#{create.invest.loan}"></i>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/invest-application.html" class="nav-link active">
+                            <i class="bi bi-cash" th:text="#{create.invest.investments}"></i>
+
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col py-3" id="app">
+            <div class="toast-container position-absolute p-3 top-0 end-0" id="toastPlacement">
+                <div id="danger-toast" data-bs-delay="2000" class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            {{ errorMsg }}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="container bg-light">
+                <div class="row mt-5">
+
+                    <div class="col offset-md-1">
+                        <div class="row mt-3">
+                            <div class="col-10">
+                                <h2 class="display-6 subtitle" th:text="#{create.invest.aplication}"></h2>
+                                <form class="mt-4">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <label for="type" class="form-label" th:text="#{create.invest.productinvest}"></label>
+                                            <select id="type" v-model="investTypeId" v-on:change="changedType" class="form-select" aria-label="Default select example" required>
+                                                <option value="0" th:text="#{create.invest.product}"></option>
+                                                <option v-for="investType in investTypes" v-bind:value="investType.id">{{ investType.name }} </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col">
+                                            <label for="payments" class="form-label" th:text="#{create.invest.rent}"></label>
+                                            <select id="payments" v-model="plazos" class="form-select" aria-label="Default select example" required>
+                                                <option value="0" th:text="#{create.invest.rent2}"></option>
+                                                <option v-for="plazo in plazosList" v-bind:value="plazo">{{ plazo }}</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-5">
+                                            <label for="to-account" class="form-label" th:text="#{create.invest.accounts}"></label>
+                                            <select id="to-account" v-model="accountFromNumber" class="form-select" aria-label="Default select example" required>
+                                                <option value="VIN" th:text="#{create.invest.account}"></option>
+                                                <option v-for="account in clientAccounts" v-bind:value="account.number">{{ account.number }} | Balance: {{ account.balance }}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label for="amount" class="form-label" th:text="#{create.invest.amount}"></label>
+                                            <input id="amount" v-model="amount" type="number" class="form-control" placeholder="VIN000554" aria-label="to account">
+                                        </div>
+
+                                        <!--
+
+                                        <div class="col">
+                                            <label class="form-label">Cuota</label>
+                                            <div><button type="button" v-on:click="checkFees" class="btn btn-sm btn-outline-primary mt-1">Ver cuotas</button></div>
+                                        </div>
+-->
+                                    </div>
+                                    <button type="button" v-on:click="checkApplication" class="btn btn-sm btn-outline-success mt-4" th:text="#{create.invest.aply}"></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="confirModal" tabindex="-1" aria-labelledby="confirModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="confirModalLabel">Confirm Invest Application</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" th:text="#{create.invest.questionconfirm}">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal" th:text="#{create.invest.cancel}"></button>
+                            <button type="button" v-on:click="apply" class="btn btn-sm btn-outline-success" th:text="#{create.invest.yes}"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal 2-->
+            <div class="modal fade" id="okModal" tabindex="-1" aria-labelledby="okModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="okModalLabel" th:text="#{create.invest.complete}"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            The invest have been applied! <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" v-on:click="finish" class="btn btn-sm btn-outline-success" data-bs-dismiss="modal">Ok</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal 3-->
+
+            <div class="modal fade" id="feesModal" tabindex="-1" aria-labelledby="feesModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="feesModalLabel" th:text="#{create.invest.fees}"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            You will pay:
+                            <ol class="list-group list-group-numbered">
+                                <li v-for="fee in fees" class="list-group-item">${{ fee.amount }}</li>
+                                <span class="mt-2">Total: ${{ this.totalinvest }}</span>
+                            </ol>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-outline-success" data-bs-dismiss="modal">Ok</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<footer id="Footer" class="text-center text-white py-2  pt-5">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <a class="navbar-brand" href="#">
+                    <img src="/web/img/Eyes2.png" alt="icono" width="130" height="">
+                </a>
+            </div>
+            <div class="col-12 col-sm-6">
+                <a class="active m-2" aria-current="page" href="#" th:text="#{create.invest.about2}"></a>
+                <a class="active m-2" href="#" th:text="#{create.invest.norm}"></a>
+                <a class="active m-2" href="#" th:text="#{create.invest.filial}"></a>
+                <a class="active m-2" href="#" th:text="#{create.invest.aply}"rel=""></a>
+                <a class="active m-2" href="#Contacto" th:text="#{create.invest.find}"></a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <p>We see beyond</p>
+            </div>
+
+            <div class="col-12 col-sm-6">
+                <a target="_blank" href="https://github.com/">
+                    <i class="fab fa-github-square fa-3x mx-2"></i>
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/">
+                    <i class="fab fa-linkedin fa-3x mx-2"></i>
+                </a>
+                <a target="_blank" href="https://twitter.com/">
+                    <i class="fab fa-twitter-square fa-3x mx-2"></i>
+                </a>
+                <a target="_blank" href="https://www.facebook.com/">
+                    <i class="fab fa-facebook-square fa-3x mx-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="/web/js/create-invest.js"></script>
+</body>
+
+</html>

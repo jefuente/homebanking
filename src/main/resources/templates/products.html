@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <link rel="stylesheet" href="/web/css/accounts.css">
+    <title>EY(ES) Chile – Inversiones</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="/web/img/Eye.png" alt="icono" width="60" height="45">
+        </a>
+        <a class="navbar-brand" href="#">EY.ES</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/index.html">Cierre de sesión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/products.html(lang=es)}">Español</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"><img src="/web/img/españa.png" alt="" width="40px"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/products.html(lang=en)}">English</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"><img src="/web/img/UK.png" alt="" width="30px"></a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 barralat">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white"
+                 style="height: 435px;">
+                <a href="/"
+                   class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Mi Banco</span>
+                </a>
+
+
+
+
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="/accounts.html" class="nav-link link-dark">
+                            <i class="bi bi-inboxes"></i>
+                            Cuentas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cards.html" class="nav-link link-dark">
+                            <i class="bi bi-credit-card"></i>
+                            Tarjetas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/transfers.html" class="nav-link link-dark">
+                            <i class="bi bi-box-arrow-right"></i>
+                            Transferencias
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/loan.html" class="nav-link link-dark">
+                            <i class="bi bi-cash"></i>
+                            Préstamos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/invest-application.html" class="nav-link active">
+                            <i class="bi bi-cash"></i>
+                            Inversiones
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <section>
+            <div class="col py-3" id="app">
+                <h2>Productos de inversion</h2>
+                <div class="accordion col-10" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Renta variable: Acciones y Bolsa
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Este tipo de producto financiero es uno de los más conocidos por la gente aunque no hayan invertido nunca porque <strong>¿quién no ha oído hablar de las acciones?</strong> En efecto, cuando hablamos de renta variable hacemos referencia (entre otros activos) a las
+                                    conocidas acciones que se compran y
+                                    venden en la Bolsa.</p>
+                                <p>La principal característica de la renta
+                                    variable es que <strong>se desconoce la
+                                        rentabilidad del activo</strong>, ya
+                                    que su valor varía dependiendo de la
+                                    situación del mercado y del
+                                    comportamiento de la compañía de la que
+                                    compramos las acciones. Esta
+                                    incertidumbre tiene como consecuencia
+                                    que la rentabilidad de la inversión y el
+                                    retorno del dinero invertido no estén
+                                    garantizados.</p>
+                                <p>Así que asumimos más riesgo, puesto que
+                                    el valor puede descender, pero también
+                                    tenemos más posibilidades de obtener
+                                    mejores rentabilidades que en otro tipo
+                                    de productos. En esta categoría
+                                    <strong>también podríamos incluir la
+                                        inversión en divisas o materias
+                                        primas.</strong></p>
+                                <p><a href="https://blog.r4.com/introduccion-bolsa/"
+                                      target="_blank"
+                                      rel="noopener noreferrer" style="color: #339966;"><strong>Conoce
+                                    cómo funciona la bolsa
+                                    aquí</strong></a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Renta fija: Bonos y obligaciones
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Históricamente, este tipo de producto de
+                                    inversión ha sido el preferido por los
+                                    inversores más conservadores. ¿Por qué?
+                                    Los activos de renta fija tienen como
+                                    característica que ofrecen <strong>una
+                                        rentabilidad fija sobre la inversión
+                                        realizada, en un plazo de tiempo
+                                        determinado. </strong></p>
+                                <p>Evidentemente, esto ofrece más seguridad
+                                    para el inversor pero, como
+                                    contrapartida, <strong>la rentabilidad
+                                        ofrecida es menor respecto a otros
+                                        productos de inversión</strong> como
+                                    la renta variable, por ejemplo.</p>
+                                <p>Ahora bien, <strong>la situación actual
+                                    de la renta fija es
+                                    complicada</strong>. Muchos emisores
+                                    de deuda están ofreciendo rentabilidades
+                                    negativas, con lo que las pérdidas al
+                                    invertir están aseguradas.</p>
+                                <p><span style="color: #339966;"><a
+                                        href="https://blog.r4.com/que-es-renta-fija/"
+                                        style="color: #339966;"><strong>Conoce
+                                                más de la renta fija
+                                                aquí.</strong></a></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Fondos de inversión: Diversificación del riesgo
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Los fondos de inversión son Instituciones
+                                    de Inversión Colectiva (IIC) que tienen
+                                    como objetivo <strong>captar un
+                                        determinado patrimonio de un número
+                                        de inversores para después
+                                        invertirlo en diferentes activos
+                                        financieros</strong> que den un buen
+                                    beneficio.</p>
+                                <p>Al invertir en diferentes tipos de
+                                    activos financieros, los fondos de
+                                    inversión consiguen diversificar el
+                                    riesgo, ya que si un activo no está
+                                    ofreciendo un buen rendimiento, se puede
+                                    compensar con otro. Además, gracias a
+                                    esta diversidad, <strong>todos los tipos
+                                        de inversores pueden encontrar un
+                                        fondo de inversión</strong> que se
+                                    adapte a ellos.</p>
+                                <p>Por último, otra de las ventajas de los
+                                    fondos de inversión es que son muy
+                                    líquidos, lo que significa que si
+                                    quieres recuperar tu dinero, podrás
+                                    hacerlo de forma fácil.</p>
+                                <p><span style="color: #339966;"><a
+                                        href="https://blog.r4.com/que-son-los-fondos-de-inversion/"
+                                        style="color: #339966;"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="¿Qué son los fondos de inversión"><strong>Conoce
+                                                más de los fondos de
+                                                inversión
+                                                aquí</strong></a></span></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Planes de pensiones: Ahorro para el futuro
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>A medio camino entre la inversión y el
+                                    ahorro, los planes de pensiones son
+                                    vehículos de inversión que están
+                                    pensados para <strong>complementar la
+                                        pensión de jubilación en el momento
+                                        del retiro laboral. </strong></p>
+                                <p>Su funcionamiento es bastante parecido al
+                                    de los fondos de inversión ya que
+                                    invierten en diferentes activos
+                                    financieros, ofreciendo diversificación
+                                    y un rango amplio de perfiles de
+                                    inversión. Además, <strong>ofrecen unas
+                                        ventajas fiscales que otros tipos de
+                                        productos de inversión no
+                                        contemplan</strong>.</p>
+                                <p>La principal diferencia (y posible pega)
+                                    frente a los fondos de inversión es que
+                                    los planes son ilíquidos, ya que no
+                                    dejan recuperar tu dinero, como mínimo,
+                                    hasta 10 años después de la primera
+                                    aportación, a la hora de la jubilación o
+                                    en <a
+                                            href="https://blog.r4.com/recuperar-plan-de-pensiones/">algunos
+                                        supuestos excepcionales o casos de
+                                        contingencia</a>.</p>
+                                <p><span style="color: #339966;"><a
+                                        href="https://blog.r4.com/que-son-planes-de-pensiones/"
+                                        style="color: #339966;"
+                                        title="¿Qué son los planes de pensiones?"><strong>Conoce
+                                                más de los planes de
+                                                pensiones
+                                                aquí</strong></a></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Productos derivados: Inversión para expertos
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Este tipo de productos de inversión
+                                    empiezan a ser más complicados y están
+                                    dirigidos para inversores
+                                    experimentados, dada la complejidad que
+                                    suponen. <strong>Los derivados son
+                                        productos basados en la evolución de
+                                        los precios de otro activo</strong>,
+                                    que pasa a llamarse activo subyacente.
+                                </p>
+                                <p>Dicho de otra forma, los derivados
+                                    ofrecen una contratación a plazo en la
+                                    que se establecen todos los detalles en
+                                    el momento del acuerdo, mientras que la
+                                    transacción real se produce en un
+                                    momento futuro. Algunos tipos de
+                                    derivados son los futuros, las
+                                    <strong>opciones, los Warrants o los
+                                        CFDs.</strong></p>
+                                <p>Los activos subyacentes sobre los que se
+                                    negocian pueden ser <strong>desde
+                                        acciones hasta materias primas o
+                                        índices.</strong> </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                Gestión pasiva: Confianza en el mercado
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>La gestión pasiva pone el foco de su
+                                    <strong>estrategia de inversión en la
+                                        eficiencia del mercado</strong>
+                                    frente a las decisiones que pueda tomar
+                                    el gestor de un fondo de inversión para
+                                    superar el mercado.</p>
+                                <p>Hay dos tipos principales de productos de
+                                    gestión pasiva: el primero son los
+                                    fondos de inversión indexados, que
+                                    intentan replicar el comportamiento de
+                                    un índice sobre el que se basa; el
+                                    segundo son los ETFs, también llamados
+                                    fondos cotizados, que <strong>son grupos
+                                        de activos financieros de un
+                                        índice</strong>, divisas, materias
+                                    primas o incluso sectores que cotizan
+                                    como acciones.</p>
+                                <p><strong>La parte positiva</strong> de la
+                                    gestión pasiva es que reduce los gastos
+                                    de gestión y diversifica tu inversión.
+                                    Sin embargo, <strong>la parte
+                                        negativa</strong> es que da poco
+                                    tiempo de respuesta al inversor si el
+                                    mercado cae y al invertir en un índice,
+                                    materia, o sector concreto, la
+                                    diversificación es menor si se compara
+                                    con un fondo de diferentes activos
+                                    financieros.</p>
+                                <p><span style="color: #339966;"><a
+                                        href="https://blog.r4.com/que-es-la-gestion-pasiva/"
+                                        style="color: #339966;"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="¿Qué es la gestión pasiva?"><strong>Conoce
+                                                más sobre la gestión pasiva
+                                                aquí</strong></a></span></p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSeven">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                Inversión alternativa: Una forma diferente de inversión
+                            </button>
+                        </h2>
+                        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Este tipo de productos <strong>se alejan
+                                    de todos los activos financieros que
+                                    hemos visto hasta ahora</strong>,
+                                    que llamaremos inversión tradicional,
+                                    para invertir en otro tipo de productos
+                                    que no encontramos en los mercados
+                                    financieros.</p>
+                                <p>El objetivo que busca la inversión
+                                    alternativa es desligarse de estos
+                                    mercados sin por ello renunciar a
+                                    rentabilidades interesantes. Eso sí, la
+                                    inversión tradicional y la alternativa
+                                    no son incompatibles, sino todo lo
+                                    contrario, puesto que hay algunos fondos
+                                    de inversión que dedican parte de su
+                                    patrimonio a este tipo de activos.</p>
+                                <p>Algunos ejemplos de inversión alternativa
+                                    serían la <strong>inversión
+                                        inmobiliaria, la compra de arte o
+                                        el</strong> <strong>Private
+                                        Equity.</strong></p>
+                                <p><span style="color: #339966;"><a
+                                        href="https://blog.r4.com/que-es-inversion-alternativa/"
+                                        style="color: #339966;"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="¿Qué es la inversión alternativa?"><strong>Conoce
+                                            más de la inversión
+                                            alternativa
+                                            aquí</strong></a></span></p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </div>
+</div>
+</div>
+
+
+<footer id="Footer" class="text-center text-white py-2  pt-5">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <a class="navbar-brand" href="#">
+                    <img src="/web/img/EYes2.png" alt="icono" width="130" height="">
+                </a>
+            </div>
+            <div class="col-12 col-sm-6">
+                <a class="active m-2" aria-current="page" href="#">Conócenos</a>
+                <a class="active m-2" href="#">Normas</a>
+                <a class="active m-2" href="#">Filiales</a>
+                <a class="active m-2" href="#">Sitios Relacionados</a>
+                <a class="active m-2" href="#Contacto">Encuéntranos</a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <p>We see beyond</p>
+            </div>
+
+            <div class="col-12 col-sm-6">
+                <a target="_blank" href="https://github.com/">
+                    <i class="fab fa-github-square fa-3x mx-2"></i>
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/">
+                    <i class="fab fa-linkedin fa-3x mx-2"></i>
+                </a>
+                <a target="_blank" href="https://twitter.com/">
+                    <i class="fab fa-twitter-square fa-3x mx-2"></i>
+                </a>
+                <a target="_blank" href="https://www.facebook.com/">
+                    <i class="fab fa-facebook-square fa-3x mx-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+.welcome{
+    background: linear-gradient(45deg,#FFE600,#1A1A24);
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+}
+
+.welcome-logo{
+    width: 80%;
+}
+
+.index-body{
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #1A1A24;
+}
+
+.index-container{
+    margin-top: 10%;
+}
+
+

@@ -1,0 +1,114 @@
+/*
+.account{
+    background: linear-gradient(45deg,#ee0979,#ff6a00);
+    color: white;
+}
+
+.account-balance{
+    font-size: 2em;
+    margin: 0px;
+}
+a {
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    width: 19.5%;
+    margin-right: 0.625%;
+    text-align: center;
+    line-height: 3;
+    color: black;
+}
+a:link, a:visited, a:focus {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+a:hover {
+    background-color: #4158D0;
+    background-image: linear-gradient(225deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+a:active {
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+}
+
+*/
+/*   css de la pagina accounts      */
+
+
+.account{
+    background: linear-gradient(45deg,#ee0979,#ff6a00);
+    color: white;
+    box-shadow: 1px 1px 5px black;
+}
+
+.account:hover{
+    box-shadow: 2px 2px 10px black;
+}
+
+.account-details-header{
+    background: linear-gradient(45deg,#ee0979,#ff6a00);
+    color: white;
+}
+
+.account-balance{
+    font-size: 2em;
+    margin: 0px;
+}
+
+.account-link{
+    text-decoration: none;
+}
+
+.subtitle {
+    display: inline;
+}
+
+#create{
+    margin-bottom: 15px;
+}
+
+.credit-transaction{
+    color: green;
+}
+
+.debit-transaction{
+    color: red;
+}
+
+.loan{
+    background: linear-gradient(45deg,#ee09cf,#0026ff);
+    color: white;
+}
+
+.menu-logo{
+    width: 150px;
+    height: 40px;
+}
+
+.welcome{
+    background: linear-gradient(45deg,#ee0979,#ff6a00);
+}
+
+.welcome-logo{
+    width: 60%;
+}
+
+.index-body{
+    background-image: url(../img/avila.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.index-container{
+    margin-top: 10%;
+}
+
+footer{
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
